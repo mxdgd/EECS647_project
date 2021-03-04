@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Install Docker 
 
-Things you may want to cover:
+Run Docker Compose
 
-* Ruby version
+Install Dip (optional)
 
-* System dependencies
+Run bundler
 
-* Configuration
+Run rails db:create
 
-* Database creation
+run rails db:migrate
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Deploying: TODO Look into Heroku
