@@ -24,7 +24,7 @@ services:
     volumes: 
       - pgdata:/var/lib/postgresql/data
     ports:
-      - "15432:5432"
+      - "5432:5432"
   webpacker:
     <<: *base
     environment:
