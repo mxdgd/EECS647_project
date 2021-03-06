@@ -1,35 +1,17 @@
--# = form_with model: @recipe do |form|
--#   .form-group
--#     = form.label :title, "Title:"
--#     = form.text_field :title, placeholder: "Title", class: "form-control"
-
--#   %div{data: {controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper'}}
--#     %template{data: {nested_form_target: "template" }}
--#       = form.fields_for :ingredients, Ingredient.new, child_index: 'NEW_RECORD' do |ingredients_form|
--#         = render "ingredients_form", ingredients: ingredients_form
-
--#     %label Ingredients:
--#     = form.fields_for :ingredients do |ingredients_form|
--#       = render "ingredients_form", ingredients: ingredients_form
--#     %div{data:{nested_form_target: "target"}}
--#     %button.btn.btn-link{data:{action: "nested-form#add"}} + Add Ingredient
-
--#   = form.submit "Save Recipe", class: "btn btn-primary btn-block"
-
-= form_with model: @film, url: admin_films_path do |form|
+= form_with model: ['admin', @film] do |form|
    .form-group
       = form.label :title, "Title:"
       = form.text_field :title, placeholder: "Title", class: "form-control"
-
+   .form-group
       = form.label :vimeo_link, "Vimeo Link:"
       = form.text_field :vimeo_link, placeholder: "Vimeo Link", class: "form-control"
-
+   .form-group
       = form.label :description, "Description:"
       = form.text_area :description, class: "form-control"
-
+   .form-group
       = form.label :release_date, "Release Date:"
-      = form.date_select :release_date, order: [:month, :year]
-
+      = form.date_field :release_date, class: "form-control"
+   .form-group
       %div{data: {controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper'}}
          %template{data: {nested_form_target: "template" }}
             = form.fields_for :cast_members, CastMember.new, child_index: 'NEW_RECORD' do |cast_members_form|
@@ -40,7 +22,7 @@
             = render "cast_members_form", cast_member: cast_members_form
          %div{data:{nested_form_target: "target"}}
          %button.btn.btn-link{data:{action: "nested-form#add"}} + Add Cast Member
-
+   .form-group
       %div{data: {controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper'}}
          %template{data: {nested_form_target: "template" }}
             = form.fields_for :awards, Award.new, child_index: 'NEW_RECORD' do |awards_form|
@@ -51,5 +33,5 @@
             = render "awards_form", award: awards_form
          %div{data:{nested_form_target: "target"}}
          %button.btn.btn-link{data:{action: "nested-form#add"}} + Add Award
-
+   .form-group
       = form.submit "Save Film", class: "btn btn-primary btn-block"

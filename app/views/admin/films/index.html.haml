@@ -1,1 +1,5 @@
-senip
+%h1.text-center Films
+%ul.list-group
+  - @films.each do |film|
+    %li.list-group-item
+      = film.title

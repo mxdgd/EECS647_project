@@ -30,7 +30,11 @@ class Admin::FilmsController < ApplicationController
    end
 
    def update
-
+      if @film.update(films_params)
+         redirect_to admin_film_path(@film)
+       else
+         render :edit
+       end
    end
 
    def destroy
