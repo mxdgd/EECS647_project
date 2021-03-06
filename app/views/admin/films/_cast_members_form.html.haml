@@ -1,0 +1,8 @@
+.row.py-1.nested-form-wrapper{data:{new_record: cast_member.object.new_record?}}
+   .col-4
+      = cast_member.text_field :name, placeholder: "Cast Member Name", class: "form-control"
+   .col-7
+      = cast_member.text_field :role, placeholder: "Role", class: "form-control"
+   .col-1
+      %button.btn.btn-danger.btn-block{data:{action: "nested-form#remove"}} X
+   = cast_member.hidden_field :_destroy

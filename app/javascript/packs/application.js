@@ -7,7 +7,13 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import { Application } from "stimulus"
+import NestedForm from "stimulus-rails-nested-form"
+import 'css/application'
+import "controllers"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+const application = Application.start()
+application.register("nested-form", NestedForm)
