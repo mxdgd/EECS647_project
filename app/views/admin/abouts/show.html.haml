@@ -1,0 +1,17 @@
+%h1.text-center About
+%b Photo:
+%br
+- if @about.photo.attached?
+  Woah
+- else
+  %i There is currently no photo
+%br
+%b Bio:
+= @about.bio
+%br 
+%b Resume:
+%br
+- if @about.resume.attached?
+  %iframe{src: url_for(@about.resume), width: "600", height: "780"}
+- else
+  %i There is currently no resume
