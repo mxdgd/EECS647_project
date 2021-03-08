@@ -1,0 +1,33 @@
+%h1.text-center Contact Info
+%b Email: 
+= mail_to @contact.email, @contact.email
+%br
+%b Facebook: 
+- unless @contact.facebook.nil?
+  = link_to @contact.facebook, @contact.facebook
+- else
+  %i There is no Facebook account linked.
+%br
+%b Instagram: 
+- unless @contact.instagram.nil?
+  = link_to @contact.instagram, @contact.instagram
+- else
+  %i There is no Instagram account linked.
+%br
+%b Twitter: 
+- unless @contact.twitter.nil?
+  = link_to @contact.twitter, @contact.twitter
+- else
+  %i There is no Twitter account linked.
+%br
+%b Vimeo: 
+- unless @contact.vimeo.nil?
+  = link_to @contact.vimeo, @contact.vimeo
+- else
+  %i There is no Vimeo account linked.
+%br
+%b YouTube: 
+- unless @contact.youtube.nil?
+  = link_to @contact.youtube, @contact.youtube
+- else
+  %i There is no YouTube account linked.

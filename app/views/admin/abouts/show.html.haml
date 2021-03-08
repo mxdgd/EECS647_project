@@ -2,7 +2,7 @@
 %b Photo:
 %br
 - if @about.photo.attached?
-  Woah
+  = image_tag url_for(@about.photo)
 - else
   %i There is currently no photo
 %br

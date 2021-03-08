@@ -1,14 +1,8 @@
 class Admin::AboutsController < ApplicationController
   before_action :load_about, only: [:show, :edit, :update]
+  
   def show
 
-  end
-
-  def create
-    @about = About.new
-    if @about.save 
-      puts "Successfully Saved"
-    end
   end
 
   def edit

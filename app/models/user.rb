@@ -4,4 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable, :validatable
   has_many :films
   has_one :about
+  has_one :contact
 end
