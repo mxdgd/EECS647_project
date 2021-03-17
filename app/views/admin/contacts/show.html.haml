@@ -3,31 +3,31 @@
 = mail_to @contact.email, @contact.email
 %br
 %b Facebook: 
-- unless @contact.facebook.nil?
+- unless @contact.facebook.blank?
   = link_to @contact.facebook, @contact.facebook
 - else
   %i There is no Facebook account linked.
 %br
 %b Instagram: 
-- unless @contact.instagram.nil?
+- unless @contact.instagram.blank?
   = link_to @contact.instagram, @contact.instagram
 - else
   %i There is no Instagram account linked.
 %br
 %b Twitter: 
-- unless @contact.twitter.nil?
+- unless @contact.twitter.blank?
   = link_to @contact.twitter, @contact.twitter
 - else
   %i There is no Twitter account linked.
 %br
 %b Vimeo: 
-- unless @contact.vimeo.nil?
+- unless @contact.vimeo.blank?
   = link_to @contact.vimeo, @contact.vimeo
 - else
   %i There is no Vimeo account linked.
 %br
 %b YouTube: 
-- unless @contact.youtube.nil?
+- unless @contact.youtube.blank?
   = link_to @contact.youtube, @contact.youtube
 - else
   %i There is no YouTube account linked.

@@ -1,4 +1,5 @@
 class Admin::AboutsController < ApplicationController
+  layout "admin"
   before_action :load_about, only: [:show, :edit, :update]
   
   def show

@@ -1,4 +1,5 @@
 class Admin::FilmsController < ApplicationController
+   layout "admin"
    before_action :load_film, only: [:show, :edit, :update, :destroy] 
 
    def index 
@@ -38,7 +39,8 @@ class Admin::FilmsController < ApplicationController
    end
 
    def destroy
-
+      @film.destroy
+      redirect_to admin_films_path
    end
 
    private

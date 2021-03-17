@@ -1,5 +1,29 @@
-%h1.text-center Films
-%ul.list-group
-  - @films.each do |film|
-    %li.list-group-item
-      = film.title
+.row.d-flex.justify-content-between.align-items-center
+  .col-auto 
+    %h1 Films
+  .col-auto 
+    = link_to "+ Film", new_admin_film_path, class: "btn btn-success"
+
+- @films.each do |film|
+  .card.mb-3.py-3
+    .row.no-gutters
+      .col-auto.mx-2
+        %iframe{allow: "autoplay; fullscreen; picture-in-picture", 
+                allowfullscreen: "", 
+                frameborder: "0", 
+                src: "https://player.vimeo.com/video/#{ film.vimeo_link.split("/").last }?title=0&byline=0&portrait=0"
+                }
+      .col.mx-2
+        .card-body.py-0
+          %h4.card-title 
+            = film.title
+          %p.card-text 
+            = simple_format(film.description)
+          %p.card-text
+            %small.text-muted 
+              = "Released on #{ film.release_date.strftime("%b. %d, %Y") }"
+      .col-auto.mx-2
+        = link_to edit_admin_film_path(film), class: "btn btn-link p-1" do
+          %i.far.fa-edit
+        = link_to admin_film_path(film), method: :delete, class: "btn btn-link text-danger p-1" do 
+          %i.far.fa-trash-alt

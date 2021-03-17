@@ -1,4 +1,5 @@
 class Admin::ContactsController < ApplicationController
+  layout "admin"
   before_action :load_contact, only: [:show, :edit, :update]
  
   def show

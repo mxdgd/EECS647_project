@@ -12,6 +12,9 @@ import NestedForm from "stimulus-rails-nested-form"
 import 'css/application'
 import "controllers"
 
+import "@fortawesome/fontawesome-free"
+import "@fortawesome/fontawesome-free/js/all"
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
