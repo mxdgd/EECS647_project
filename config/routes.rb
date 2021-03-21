@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     resource :about
     resource :contact
   end
+  root "indexes#index"
+  get '/', to: 'indexes#index'
+  resources :films, only: [:index, :show]
 end

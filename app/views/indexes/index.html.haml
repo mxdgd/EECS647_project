@@ -1,0 +1,57 @@
+.container-fluid.bg-primary.text-light
+  .container.text-center.py-5.min-vh-100
+    %h1 Hi, I'm Liam!
+    %h4 I'm a Film & Media Arts major at the Univeristy of Utah.
+    = image_tag url_for(@about.photo), class: "my-5 w-25 rounded-circle"
+    %h2 About Me
+    .row.justify-content-center
+      .col-8.text-justify
+        = simple_format @about.bio
+        = link_to "Learn more with my resume!", url_for(@about.resume), class: "btn btn-block btn-link text-light"
+.container
+  %h1.text-center Want to see some of my work?
+  .row.justify-content-center
+    .col-8.py-5
+      - @films.first(5).each do |film|
+        .card.mb-3.py-3
+          .row.no-gutters
+            .col-auto.mx-2
+              %iframe{allow: "autoplay; fullscreen; picture-in-picture", 
+                      allowfullscreen: "", 
+                      frameborder: "0", 
+                      src: "https://player.vimeo.com/video/#{ film.vimeo_link.split("/").last }?title=0&byline=0&portrait=0"
+                      }
+            .col.mx-2
+              .card-body.py-0
+                %h4.card-title 
+                  = film.title
+                %p.card-text 
+                  = simple_format(film.description)
+                %p.card-text
+                  %small.text-muted 
+                    = "Released on #{ film.release_date.strftime("%b. %d, %Y") }"
+          = link_to "", film_path(film), class: "stretched-link"
+      - if @films.size > 5
+        = link_to "View all films", films_path, class: "btn btn-link"
+.container-fluid.bg-primary.py-5
+  .container.text-center.text-light
+    %h1 Want to get in touch?
+    %h4 Feel free to contact me using any of the methods below!
+    - unless @contact.email.blank?
+      = mail_to @contact.email, class:"social-link btn btn-lg btn-link text-light" do
+        %i.far.fa-envelope
+    - unless @contact.facebook.blank?
+      = link_to @contact.facebook, class:"social-link btn btn-lg btn-link text-light" do
+        %i.fab.fa-facebook
+    - unless @contact.instagram.blank?
+      = link_to @contact.instagram, class:"social-link btn btn-lg btn-link text-light" do
+        %i.fab.fa-instagram
+    - unless @contact.twitter.blank?
+      = link_to @contact.twitter, class:"social-link btn btn-lg btn-link text-light" do
+        %i.fab.fa-twitter
+    - unless @contact.vimeo.blank?
+      = link_to @contact.vimeo, class:"social-link btn btn-lg btn-link text-light" do
+        %i.fab.fa-vimeo
+    - unless @contact.youtube.blank?
+      = link_to @contact.youtube, class:"social-link btn btn-lg btn-link text-light" do
+        %i.fab.fa-youtube

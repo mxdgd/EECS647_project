@@ -5,8 +5,9 @@
     = link_to "Edit Info", edit_admin_contact_path, class: "btn btn-success"
 
 %h5 Your current methods of contact are:
-= mail_to @contact.email, class:"social-link btn btn-lg btn-link" do
-  %i.far.fa-envelope
+- unless @contact.email.blank?
+  = mail_to @contact.email, class:"social-link btn btn-lg btn-link" do
+    %i.far.fa-envelope
 - unless @contact.facebook.blank?
   = link_to @contact.facebook, class:"social-link btn btn-lg btn-link" do
     %i.fab.fa-facebook
