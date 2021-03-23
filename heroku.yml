@@ -1,9 +1,0 @@
-build:
-  docker:
-    web: devops/Dockerfile
-release:
-  command:
-    - ./devops/deployment-tasks.sh
-  image: web
-run:
-  web: bundle exec puma -C config/puma.rb
