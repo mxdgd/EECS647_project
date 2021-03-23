@@ -1,0 +1,18 @@
+default: &default
+   host: localhost
+   adapter: postgresql
+   encoding: unicode
+   username: rubyuser
+   password: pass
+  
+development:
+   <<: *default
+   database: portfolio_development
+
+test:
+   <<: *default
+   database: portfolio_test
+ 
+production:
+   <<: *default
+   database: portfolio_production
