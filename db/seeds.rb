@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create(email: "test@test.com", password: "password")
+user.about.new(bio: "");
