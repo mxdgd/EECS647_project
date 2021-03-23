@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  namespace :admin do
+    root "films#index"
+    resources :films
+    resource :about
+    resource :contact
+  end
+  root "indexes#index"
+  get '/', to: 'indexes#index'
+  resources :films, only: [:index, :show]
 end

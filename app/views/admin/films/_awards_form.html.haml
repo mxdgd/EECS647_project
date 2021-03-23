@@ -1,0 +1,8 @@
+.row.py-1.nested-form-wrapper{data:{new_record: award.object.new_record?}}
+  .col-4
+    = award.text_field :place, placeholder: "Place (ex: 1st)", class: "form-control"
+  .col-7
+    = award.text_field :festival, placeholder: "Festival Name", class: "form-control"
+  .col-1
+    %button.btn.btn-danger.btn-block{data:{action: "nested-form#remove"}} X
+  = award.hidden_field :_destroy
