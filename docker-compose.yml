@@ -1,0 +1,43 @@
+version: "3.4"
+x-base: &base
+  build:
+    context: ./devops
+  stdin_open: true
+  tty: true
+  volumes:
+    - '.:/app:cached'
+    - bundle_cache:/usr/local/bundle
+  env_file: .docker-development-vars
+services:
+  app:    
+    <<: *base
+    image: brandnewbox/bnb-ruby:2.7.2-postgresql
+    command: bundle exec puma -C config/puma.rb
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: postgres:12
+    environment: 
+      - POSTGRES_USER=root
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes: 
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  webpacker:
+    <<: *base
+    environment:
+      - RACK_ENV=development
+      - RAILS_ENV=development
+    command: ./bin/webpack-dev-server
+    ports:
+      - '3035:3035'
+  redis:
+    image: 'redis:3.2-alpine'
+    ports:
+      - '6379:6379'
+volumes:
+  bundle_cache:
+  pgdata: 
