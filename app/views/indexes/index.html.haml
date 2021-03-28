@@ -2,7 +2,7 @@
   .container.text-center.py-5.min-vh-100
     %h1 Hi, I'm Liam!
     %h4 I'm a Film & Media Arts major at the Univeristy of Utah.
-    - unless @about.photo.blank?
+    - unless @about.photo.blank? 
       = image_tag url_for(@about.photo), class: "my-5 w-25 rounded-circle"
     %h2 About Me
     .row.justify-content-center
