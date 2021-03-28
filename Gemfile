@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem "standard", "~> 0.10.2"
 gem "haml-rails", "~> 2.0"
 gem "devise"
+gem "aws-sdk-s3", require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
