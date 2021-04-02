@@ -22,7 +22,7 @@ class Admin::AboutsController < ApplicationController
   private
 
   def load_about
-    @about = About.where(user_id: current_user.id).first_or_create
+    @about = current_user.about
   end
 
   def about_params
