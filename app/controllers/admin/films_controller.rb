@@ -4,7 +4,7 @@ class Admin::FilmsController < ApplicationController
   before_action :load_film, only: [:show, :edit, :update, :destroy] 
 
   def index 
-     @films = Film.all
+    @films = Film.all
   end
   
   def show
@@ -12,19 +12,19 @@ class Admin::FilmsController < ApplicationController
   end
 
   def new
-     @film = Film.new
-     @film.cast_members.build
-     @film.awards.build
+    @film = Film.new
+    @film.cast_members.build
+    @film.awards.build
   end
 
   def create
-     @film = current_user.films.build(films_params)
+    @film = current_user.films.build(films_params)
 
-     if @film.save
-        redirect_to admin_films_path
-     else
-        render :new
-     end
+    if @film.save
+      redirect_to admin_films_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -32,34 +32,34 @@ class Admin::FilmsController < ApplicationController
   end
 
   def update
-     if @film.update(films_params)
-        redirect_to admin_film_path(@film)
-      else
-        render :edit
-      end
+    if @film.update(films_params)
+      redirect_to admin_film_path(@film)
+    else
+      render :edit
+    end
   end
 
   def destroy
-     @film.destroy
-     redirect_to admin_films_path
+    @film.destroy
+    redirect_to admin_films_path
   end
 
   private
 
   def load_film
-     @film = current_user.films.find(params[:id])
+    @film = current_user.films.find(params[:id])
   end
 
   def films_params
-     params
-        .require(:film)
-        .permit(
-           :title,
-           :vimeo_link,
-           :description,
-           :release_date,
-           cast_members_attributes:[:id, :name, :role, :_destroy],
-           awards_attributes:[:id, :place, :festival, :_destroy]
-        )
+    params
+      .require(:film)
+      .permit(
+        :title,
+        :vimeo_link,
+        :description,
+        :release_date,
+        cast_members_attributes:[:id, :name, :role, :_destroy],
+        awards_attributes:[:id, :place, :festival, :_destroy]
+      )
   end
 end
