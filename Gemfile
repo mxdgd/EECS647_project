@@ -26,6 +26,7 @@ gem "standard", "~> 0.10.2"
 gem "haml-rails", "~> 2.0"
 gem "devise"
 gem "aws-sdk-s3", require: false
+gem "faker"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

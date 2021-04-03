@@ -8,7 +8,7 @@
     .row.justify-content-center
       .col-8.text-justify
         = simple_format @about.bio
-        - unless @about.photo.blank?
+        - unless @about.resume.blank?
           = link_to "Learn more with my resume!", url_for(@about.resume), class: "btn btn-block btn-link text-light"
 .container
   %h1.text-center Want to see some of my work?
