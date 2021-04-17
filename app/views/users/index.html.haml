@@ -1,0 +1,14 @@
+.container-fluid.bg-primary.py-5.min-vh-100
+  .container
+    .row.justify-content-center
+      .col-6.py-3.bg-white.rounded
+        %h1.text-center Admin Login
+        %hr
+        = form_with method: :post, url: "login" do |form|
+          .form-group 
+            = form.label :email
+            = form.text_field :email, class: "form-control"
+          .form-group
+            = form.label :password
+            = form.password_field :password, class: "form-control"
+          = form.submit "Login", class: "btn btn-primary btn-block"

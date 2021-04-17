@@ -22,7 +22,7 @@ class Admin::ContactsController < ApplicationController
   private
 
   def load_contact
-    @contact = current_user.contact
+    @contact = @current_user.contact
   end
 
   def contact_params

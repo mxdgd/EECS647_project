@@ -1,13 +1,23 @@
 // BOOTSTRAP VARIABLE OVERIDE
 
-
 // IMPORTS
 @import "~bootstrap/scss/bootstrap.scss";
 
 // BOOTSTRAP DEFAULTS OVERRIDES
 
-
 // MY DESIGN
+*{
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.landing{
+  font-size:1.1rem;
+}
+
 .social-link {
   font-size:2.5rem;
 }

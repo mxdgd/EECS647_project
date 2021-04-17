@@ -22,7 +22,7 @@ class Admin::AboutsController < ApplicationController
   private
 
   def load_about
-    @about = current_user.about
+    @about = @current_user.about
   end
 
   def about_params

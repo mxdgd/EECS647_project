@@ -8,7 +8,9 @@
 
 case Rails.env
 when "development"
-  user = User.create!(email: "test@test.com", password: "password")
+  user = User.new(email: "test@test.com")
+  user.password = "password"
+  user.save!
   Contact.create(user_id: user.id, email: user.email)
   about = About.create!(user_id: user.id, bio: Faker::Lorem.paragraph_by_chars(number: rand(300..450), supplemental: false))
   about.photo.attach(io: URI.open(Faker::Avatar.image), filename: "image.png")

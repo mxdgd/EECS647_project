@@ -4,7 +4,7 @@ class Admin::FilmsController < ApplicationController
   before_action :load_film, only: [:show, :edit, :update, :destroy] 
 
   def index 
-    @films = Film.all
+    @films = @current_user.films
   end
   
   def show
@@ -18,7 +18,7 @@ class Admin::FilmsController < ApplicationController
   end
 
   def create
-    @film = current_user.films.build(films_params)
+    @film = @current_user.films.build(films_params)
 
     if @film.save
       redirect_to admin_films_path
@@ -47,7 +47,7 @@ class Admin::FilmsController < ApplicationController
   private
 
   def load_film
-    @film = current_user.films.find(params[:id])
+    @film = @current_user.films.find(params[:id])
   end
 
   def films_params
