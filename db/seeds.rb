@@ -38,11 +38,9 @@ when "development"
       )
     end
   end
-
-
 when "production"
   user = User.new(email: "liambice@gmail.com")
-  user.password = "CasaBonita1"
+  user.password = "password"
   user.save!
   Contact.create(user_id: user.id, email: user.email)
   About.create(user_id: user.id)
