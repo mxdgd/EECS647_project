@@ -21,23 +21,24 @@
                 %small.text-muted 
                   = "Released on #{ film.release_date.strftime("%b. %d, %Y") }"
           = link_to "", film_path(film), class: "stretched-link"
-      %nav.d-flex.justify-content-center.align-center{"aria-label" => "Page navigation example"}
-        %ul.pagination
-          %li.page-item{class: ("disabled" if @page == 0)}
-            %a.page-link{aria_label: "Previous", href: films_path(page: @page-1)}
-              %span{aria_hidden: "true"} «
-              %span.sr-only Previous
-          - (0...(@pages_count > 5 ? 5 : @pages_count)).each do |page_number|
-            - if @page < 3
-              %li.page-item{class: ("active" if page_number == @page)}
-                = link_to page_number+1, films_path(page: page_number), class: "page-link"
-            - elsif @page > @pages_count - 3
-              %li.page-item{class: ("active" if @pages_count+page_number-4 == @page)}
-                = link_to @pages_count+page_number-3, films_path(page: @pages_count+page_number-4), class: "page-link"
-            - else
-              %li.page-item{class: ("active" if @page-page_number+2 == @page)}
-                = link_to @page+page_number-1, films_path(page: @page+page_number-2), class: "page-link"
-          %li.page-item{class: ("disabled" if @page == @pages_count)}
-            %a.page-link{aria_label: "Next", href: films_path(page: @page+1)}
-              %span{aria_hidden: "true"} »
-              %span.sr-only Next
+      - if @pages_count > 1
+        %nav.d-flex.justify-content-center.align-center{"aria-label" => "Page navigation example"}
+          %ul.pagination
+            %li.page-item{class: ("disabled" if @page == 0)}
+              %a.page-link{aria_label: "Previous", href: films_path(page: @page-1)}
+                %span{aria_hidden: "true"} «
+                %span.sr-only Previous
+            - (0...(@pages_count > 5 ? 5 : @pages_count)).each do |page_number|
+              - if @page < 3
+                %li.page-item{class: ("active" if page_number == @page)}
+                  = link_to page_number+1, films_path(page: page_number), class: "page-link"
+              - elsif @page > @pages_count - 3
+                %li.page-item{class: ("active" if @pages_count+page_number-4 == @page)}
+                  = link_to @pages_count+page_number-3, films_path(page: @pages_count+page_number-4), class: "page-link"
+              - else
+                %li.page-item{class: ("active" if @page-page_number+2 == @page)}
+                  = link_to @page+page_number-1, films_path(page: @page+page_number-2), class: "page-link"
+            %li.page-item{class: ("disabled" if @page == @pages_count)}
+              %a.page-link{aria_label: "Next", href: films_path(page: @page+1)}
+                %span{aria_hidden: "true"} »
+                %span.sr-only Next
