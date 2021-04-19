@@ -16,7 +16,7 @@ when "development"
   about.photo.attach(io: URI.open(Faker::Avatar.image), filename: "image.png")
   about.resume.attach(io: URI.open("https://writing.colostate.edu/guides/documents/resume/functionalSample.pdf"), filename: "resume.pdf")
 
-  rand(15..25).times do 
+  rand(50..100).times do 
     film = Film.create!(user_id: user.id, 
       title: Faker::Hipster.sentence, 
       vimeo_link: "https://vimeo.com/#{rand(10000..524159197)}",

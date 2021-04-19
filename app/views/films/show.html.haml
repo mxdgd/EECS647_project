@@ -1,28 +1,30 @@
 .container.py-3
   .row
-    .col-md-6
-      %div{:style => "padding:56.25% 0 0 0;position:relative;"}
-        %iframe{:allow => "autoplay; fullscreen; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :src => "https://player.vimeo.com/video/#{  @film.vimeo_link.split("/").last}", :style => "position:absolute;top:0;left:0;width:100%;height:100%;"}
-    .col-md-6
-      %h1
-        = @film.title
-      %p
-        = @film.description
-      %h6.small
-        = @film.release_date
-    .col-md-6
-      %h3 Awards
-      - @film.awards.each do |award|
-        %p
-          %b
-            = award.place
-          \-
-          = award.festival
-    .col-md-6
-      %h3 Cast Members
-      - @film.cast_members.each do |cast_member|
-        %p
-          %b
-            = cast_member.role
-          \-
-          = cast_member.name
+    .col-md-10.offset-1
+      .row
+        .col-12.py-3
+          %div{:style => "padding:56.25% 0 0 0;position:relative;"}
+            %iframe{:allow => "autoplay; fullscreen; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :src => "https://player.vimeo.com/video/#{  @film.vimeo_link.split("/").last}", :style => "position:absolute;top:0;left:0;width:100%;height:100%;"}
+        .col-12.py-3
+          %h1
+            = @film.title
+          %p
+            = @film.description
+          %h6.small
+            = @film.release_date
+        .col-md-6.py-3
+          %h3 Awards
+          - @film.awards.each do |award|
+            %p
+              %b
+                = award.place
+              \-
+              = award.festival
+        .col-md-6.py-3
+          %h3 Cast Members
+          - @film.cast_members.each do |cast_member|
+            %p
+              %b
+                = cast_member.role
+              \-
+              = cast_member.name

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #devise_for :users
   namespace :admin do
     root "films#index"
-    resources :films
+    resources :films, except: [:show]
     resource :about
     resource :contact
   end

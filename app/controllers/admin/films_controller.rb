@@ -6,10 +6,6 @@ class Admin::FilmsController < ApplicationController
   def index 
     @films = @current_user.films
   end
-  
-  def show
-     
-  end
 
   def new
     @film = Film.new
@@ -23,6 +19,8 @@ class Admin::FilmsController < ApplicationController
     if @film.save
       redirect_to admin_films_path
     else
+      @film.cast_members.build    
+      @film.awards.build
       render :new
     end
   end
@@ -33,7 +31,7 @@ class Admin::FilmsController < ApplicationController
 
   def update
     if @film.update(films_params)
-      redirect_to admin_film_path(@film)
+      redirect_to admin_films_path
     else
       render :edit
     end
