@@ -39,20 +39,14 @@
   .row
     .col-6
       %h1.text-center Films With Awards
-      - @films_with_awards.first(9).each do |film|
+      - @films_with_awards.first(10).each do |film|
         %div.border-bottom.p-2
-          = link_to film.title, films_path(film)
-      - if @films_with_awards.count > 9
-        %div.p-2
-          = link_to "and more...", films_path
+          = link_to film.title, film_path(film)
     .col-6 
       %h1.text-center Small Team Films
-      - @small_team_films.first(9).each do |film|
+      - @small_team_films.first(10).each do |film|
         %div.border-bottom.p-2
-          = link_to film.title, films_path(film)
-      - if @small_team_films.count > 9
-        %div.p-2
-          = link_to "and more...", films_path
+          = link_to film.title, film_path(film)
 
 .container-fluid.bg-primary.py-5
   .container.text-center.text-light
