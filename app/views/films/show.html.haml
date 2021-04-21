@@ -12,19 +12,21 @@
             = @film.description
           %h6.small
             = @film.release_date
-        .col-md-6.py-3
-          %h3 Awards
-          - @film.awards.each do |award|
-            %p
-              %b
-                = award.place
-              \-
-              = award.festival
-        .col-md-6.py-3
-          %h3 Cast Members
-          - @film.cast_members.each do |cast_member|
-            %p
-              %b
-                = cast_member.role
-              \-
-              = cast_member.name
+        - unless @film.awards.empty?
+          .col-md-6.py-3
+            %h3 Awards
+            - @film.awards.each do |award|
+              %p
+                %b
+                  = award.place
+                \-
+                = award.festival
+        - unless @film.cast_members.empty?
+          .col-md-6.py-3
+            %h3 Cast Members
+            - @film.cast_members.each do |cast_member|
+              %p
+                %b
+                  = cast_member.role
+                \-
+                = cast_member.name

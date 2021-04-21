@@ -4,7 +4,9 @@ class Admin::FilmsController < ApplicationController
   before_action :load_film, only: [:show, :edit, :update, :destroy] 
 
   def index 
-    @films = @current_user.films
+    @page = params.fetch(:page, 0).to_i
+    @pages_count = (Film.all.count / 5.to_f).ceil
+    @films = Film.offset(@page*5).limit(5).order(release_date: :desc)
   end
 
   def new
